@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-gametracker-dev-175921-authRole",
-      "UnauthRoleArn": "arn:aws:iam::066776451274:role/amplify-gametracker-dev-175921-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::066776451274:role/amplify-gametracker-dev-175921-authRole",
+      "AuthRoleName": "amplify-gametracker-dev-184256-authRole",
+      "UnauthRoleArn": "arn:aws:iam::110962303064:role/amplify-gametracker-dev-184256-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::110962303064:role/amplify-gametracker-dev-184256-authRole",
       "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-gametracker-dev-175921-deployment",
-      "UnauthRoleName": "amplify-gametracker-dev-175921-unauthRole",
-      "StackName": "amplify-gametracker-dev-175921",
-      "StackId": "arn:aws:cloudformation:us-west-2:066776451274:stack/amplify-gametracker-dev-175921/999da1a0-d5a8-11ed-818a-0626b06177f1",
-      "AmplifyAppId": "d1nuxzbwfai5ce"
+      "DeploymentBucketName": "amplify-gametracker-dev-184256-deployment",
+      "UnauthRoleName": "amplify-gametracker-dev-184256-unauthRole",
+      "StackName": "amplify-gametracker-dev-184256",
+      "StackId": "arn:aws:cloudformation:us-west-2:110962303064:stack/amplify-gametracker-dev-184256/b05eebf0-d5ae-11ed-a754-06e54ff56c29",
+      "AmplifyAppId": "dyh04iint43g3"
     },
     "categories": {
       "auth": {
-        "gametracker8f9c3bc7": {}
+        "gametracker7480cddb": {}
       }
     }
   }
