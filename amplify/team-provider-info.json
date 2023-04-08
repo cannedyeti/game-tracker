@@ -10,6 +10,11 @@
       "StackName": "amplify-gametracker-dev-175921",
       "StackId": "arn:aws:cloudformation:us-west-2:066776451274:stack/amplify-gametracker-dev-175921/999da1a0-d5a8-11ed-818a-0626b06177f1",
       "AmplifyAppId": "d1nuxzbwfai5ce"
+    },
+    "categories": {
+      "auth": {
+        "gametracker8f9c3bc7": {}
+      }
     }
   }
 }
