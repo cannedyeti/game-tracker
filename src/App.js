@@ -6,7 +6,7 @@ function App({ signOut, user }) {
     <div className="App">
       <Heading level={1}>Hello {user.username}</Heading>
       <Button onClick={signOut}>Sign out</Button>
-      <h2>Get this shit done boyos</h2>
+      <h2>Get this shit done boyos!!</h2>
     </div>
   );
 }
