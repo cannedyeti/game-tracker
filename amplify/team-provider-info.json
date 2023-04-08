@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gametracker-dev-175921-authRole",
+      "UnauthRoleArn": "arn:aws:iam::066776451274:role/amplify-gametracker-dev-175921-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::066776451274:role/amplify-gametracker-dev-175921-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-gametracker-dev-175921-deployment",
+      "UnauthRoleName": "amplify-gametracker-dev-175921-unauthRole",
+      "StackName": "amplify-gametracker-dev-175921",
+      "StackId": "arn:aws:cloudformation:us-west-2:066776451274:stack/amplify-gametracker-dev-175921/999da1a0-d5a8-11ed-818a-0626b06177f1",
+      "AmplifyAppId": "d1nuxzbwfai5ce"
+    }
+  }
+}
