@@ -9,8 +9,8 @@ export function RequireAuth({ requiresAdmin, children }) {
   if (route !== 'authenticated') {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
-  if(requiresAdmin && userGroups.length && !userGroups.includes('Admins')) {
-    return <Navigate to="/" state={{ from: location }} replace />
+  if (requiresAdmin && userGroups.length && !userGroups.includes('Admins')) {
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
   return children;
 }
