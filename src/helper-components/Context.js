@@ -24,8 +24,6 @@ export default function UserProvider({ children }) {
 export function useUser() {
   const context = useContext(UserContext);
 
-  console.log({ context });
-
   if (!context) throw new Error('useUser must be used within a CountProvider');
 
   const { userGroups } = context;

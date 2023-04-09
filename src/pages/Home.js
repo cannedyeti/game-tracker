@@ -1,22 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import { API } from 'aws-amplify';
+import * as queries from '../graphql/queries';
+import GameCard from '../components/home/GameCard';
 
-function Home({ user, signOut }) {
-  const [number, setNumber] = useState(0)
+function Home() {
+  const [number, setNumber] = useState(0);
+  const [allGames, setAllGames] = useState([]);
 
   function handleClick() {
     setNumber(number + 1);
   }
 
+  const styles = {
+    cardContainer: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    card: {
+      margin: '.5rem'
+    }
+  };
+
+  async function getAllGames() {
+    const games = await API.graphql({ query: queries.listGames })
+      .then((data) => data.data.listGames.items)
+      .catch((err) => {
+        console.log({ err });
+        return [];
+      });
+    setAllGames(games);
+  }
+
+  useEffect(() => {
+    getAllGames();
+  }, []);
+
   return (
     <>
       <h1>Homepage</h1>
-      {/* <h3>{number}</h3>
+      <h3>{number}</h3>
       <button onClick={handleClick}>Click me</button>
-      <h2 level={1}>Hello {user.username}</h2>
-      <button onClick={signOut}>Sign out</button>
-      <h2>Get this shit done boyos</h2> */}
+      <h2>Get this shit done boyos</h2>
+      <div style={styles.cardContainer}>
+        {allGames.map((game, index) => {
+          return <GameCard style={styles.card} key={index} game={game} />;
+        })}
+      </div>
     </>
-  )
+  );
 }
 
 export default Home;
