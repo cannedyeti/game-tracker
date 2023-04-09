@@ -1,44 +1,38 @@
-import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { RequireAuth } from './components/RequireAuth';
+import { RequireAuth } from './helper-components/RequireAuth';
 import Layout from './pages/Layout';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
+import ExamplePage from './pages/ExamplePage';
+import { Login } from './components/Login';
 
-const Admin = lazy(
-  () => import(/* webpackChunkName: 'Admin' */ './pages/Admin')
-);
-
-const ExamplePage = lazy(
-  () => import(/* webpackChunkName: 'Admin' */ './pages/ExamplePage')
-);
-
-const Home = lazy(
-  () => import(/* webpackChunkName: 'Admin' */ './pages/Home')
-);
-
-export default function RoutesComp() {
-  <BrowserRouter>
-    <Routes>
-      <Route path="/">
-        <RequireAuth>
-          <Layout>
-            <Home />
-          </Layout>
-        </RequireAuth>
-      </Route>
-      <Route path="/admin">
-        <RequireAuth requiresAdmin={true}>
-          <Layout>
-            <Admin />
-          </Layout>
-        </RequireAuth>
-      </Route>
-      <Route path="/example">
-        <RequireAuth>
-          <Layout>
-            <ExamplePage />
-          </Layout>
-        </RequireAuth>
-      </Route>
-    </Routes>
-  </BrowserRouter>
+function MyRoutes() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="/example"
+            element={
+              <RequireAuth>
+                <ExamplePage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <RequireAuth requiresAdmin={true}>
+                <Admin />
+              </RequireAuth>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+export default MyRoutes;
