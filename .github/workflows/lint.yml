@@ -7,16 +7,12 @@ on:
       - master
 
 jobs:
-  eslint:
+  lint:
+    name: run lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - uses: Adzz/jest_test_action@v1.0.0
         with:
-          node-version: 16
-      - run: npm ci # or yarn install
-      - uses: sibiraj-s/action-eslint@v2
-        with:
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,jsx'
-          annotations: true
+          package-manager: npm
+          command: lint
