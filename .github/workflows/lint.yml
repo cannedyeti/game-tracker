@@ -15,4 +15,4 @@ jobs:
       - uses: Adzz/yarn_command_action@v1.0.0
         with:
           package-manager: npm
-          command: npm run eslint
+          command: run eslint
