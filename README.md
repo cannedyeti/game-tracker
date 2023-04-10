@@ -30,3 +30,6 @@ We're all working in the same codebase, so adding a format on save option will a
 4. In vscode settings, search for `default.formatter` and choose `prettier`
 
 Now when you save, the file should format auomatically. You may need to restart vscode to see the changes.
+
+## [Wireframe](https://deonc856597.invisionapp.com/freehand/GameTracker--Code-Challenges-2Yapp1EBU)
+
