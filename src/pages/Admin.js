@@ -1,29 +1,22 @@
-import { useState, useEffect } from 'react';
-import { getUserGroups } from '../api/user';
+import CreateGame from '../components/admin/CreateGame';
+import { useUser } from '../helper-components/Context';
 
 function Admin() {
-  const [userGroups, setUserGroups] = useState([])
-
-  async function fetchGroups() {
-    setUserGroups(await getUserGroups())
-  }
-  
-  useEffect(() => {
-    fetchGroups()
-  }, []);
+  const { userGroups } = useUser();
 
   return (
     <>
-    <h3>User groups</h3>
-    <ul>
-      {userGroups.map((group, index) => {
-        return (
-          <li key={index}>{group}</li>
-        )
-      })}
-      </ul>
+      <h3>User groups</h3>
+      {userGroups ? (
+        <ul>
+          {userGroups.map((group, index) => {
+            return <li key={index}>{group}</li>;
+          })}
+        </ul>
+      ) : null}
+      <CreateGame />
     </>
-  )
+  );
 }
 
 export default Admin;

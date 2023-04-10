@@ -1,17 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
-function Layout({ children }) {
-  return(
-    <>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/admin'>Admin</Link></li>
-        <li><Link to='/example'>Example</Link></li>
-      </ul>
-      <h4>Layout container</h4>
-      { children }
-    </>
-  )
+export default function Layout() {
+  const styles = {
+    container: {
+      maxWidth: '1600px',
+      margin: '0 auto'
+    },
+    menu: {
+      padding: '0 1rem'
+    }
+  };
+
+  return (
+    <div className="container" style={styles.container}>
+      <Navigation />
+      <div style={{ padding: '2rem' }}>
+        <Outlet />
+      </div>
+    </div>
+  );
 }
-
-export default Layout;
