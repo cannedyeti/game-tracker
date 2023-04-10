@@ -16,4 +16,5 @@ jobs:
         with:
           node-version: 16
           package-manager: npm
+      - run: npm ci
       - run: npm run eslint
