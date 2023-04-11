@@ -10,7 +10,6 @@ import GameType from './stepper-components/GameType';
 import Lobby from './stepper-components/Lobby';
 
 const steps = ['Choose Game Type', 'Add Friends', 'Customize and Play'];
-const stepComponents = [Customize, GameType, Lobby];
 
 export default function HorizontalNonLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -47,10 +46,12 @@ export default function HorizontalNonLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  /*
   const handleCurStep = () => {
-    return stepComponents.find(activeStep);
+    let curStep = activeStep;
+    return stepComponents.at(curStep);
   };
-
+*/
   const handleStep = (step) => () => {
     if (completed.includes(step)) {
       setActiveStep(step);
@@ -82,6 +83,16 @@ export default function HorizontalNonLinearStepper() {
           </Step>
         ))}
       </Stepper>
+      <Box
+        sx={{
+          display: 'flexbox',
+          alignCotents: 'center',
+          alignContent: 'space-between',
+          minHeight: '600px',
+          paddingTop: '100px'
+        }}>
+        {activeStep === 0 ? <GameType /> : activeStep === 1 ? <Lobby /> : <Customize />}
+      </Box>
       <div>
         {allStepsCompleted() ? (
           <React.Fragment>
@@ -95,7 +106,7 @@ export default function HorizontalNonLinearStepper() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, marginTop: '800px' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, paddingTop: '100px' }}>
               <Button
                 color="inherit"
                 disabled={activeStep === 0}
