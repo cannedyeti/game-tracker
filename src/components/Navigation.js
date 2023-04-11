@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, CssBaseline, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+// TODO: add app bar here from MUI
 
 const styles = {
   navlinks: {
@@ -21,6 +22,7 @@ const styles = {
 };
 
 function Navigation() {
+  // TODO: Add conditional for admin / normal user to display 'admin' functions
   return (
     <AppBar position="static">
       <CssBaseline />

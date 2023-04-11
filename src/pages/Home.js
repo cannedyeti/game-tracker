@@ -40,7 +40,6 @@ function Home() {
       <h1>Homepage</h1>
       <h3>{number}</h3>
       <button onClick={handleClick}>Click me</button>
-      <h2>Get this shit done boyos</h2>
       <div style={styles.cardContainer}>
         {allGames.map((game, index) => {
           return <GameCard style={styles.card} key={index} game={game} />;

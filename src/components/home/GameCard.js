@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, ButtonGroup, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import * as mutations from '../../graphql/mutations';
 import { API } from 'aws-amplify';
@@ -24,8 +24,13 @@ function GameCard({ game }) {
       });
   }
 
+  // Add open (modal?) to request if guided / nonguided
+  function handleStartGame() {
+
+  }
+
   return (
-    <Card sx={{ maxWidth: '300px', margin: '.5rem', padding: '.5rem' }}>
+    <Card sx={{ maxWidth: '300px', margin: '.5rem', padding: '.5rem', minHeight: '500px' }}>
       {game.image ? (
         <CardMedia
           component="img"
@@ -36,14 +41,24 @@ function GameCard({ game }) {
       <CardContent sx={{ padding: '0 16px' }}>
         <Typography variant="overline">{game.name}</Typography>
         {game.description ? <div>{game.description}</div> : null}
-        <Button
-          size="small"
-          sx={{ marginTop: '1rem' }}
-          variant="contained"
-          color="error"
-          onClick={() => handleDeleteGame(game)}>
-          Delete game
-        </Button>
+        <ButtonGroup sx={{ display: 'flex', alignContent: 'space-between' }}>
+          <Button
+            size="small"
+            sx={{ marginTop: '1rem' }}
+            variant="contained"
+            color="error"
+            onClick={() => handleDeleteGame(game)}>
+            Delete Game
+          </Button>
+          <Button
+            size="small"
+            sx={{ marginTop: '1rem' }}
+            variant="contained"
+            color="success"
+            onClick={() => handleStartGame(game)}>
+            Start Game
+          </Button>
+        </ButtonGroup>
       </CardContent>
     </Card>
   );
