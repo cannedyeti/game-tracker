@@ -1,9 +1,11 @@
-import GameSetupForm from '../components/GameSetupForm';
+//import GameSetupForm from '../components/GameSetup/GameSetupStepper';
+import GameStepper from '../components/game-setup/GameStepper';
 
 function GameSetup() {
   return (
     <>
-      <GameSetupForm />
+      <h1>Lets Setup Your Game!</h1>
+      <GameStepper />
     </>
   );
 }

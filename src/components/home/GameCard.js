@@ -2,10 +2,12 @@ import { Button, ButtonGroup, Card, CardContent, CardMedia, Typography } from '@
 import { useSnackbar } from 'notistack';
 import * as mutations from '../../graphql/mutations';
 import { API } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 
 function GameCard({ game }) {
   const { enqueueSnackbar } = useSnackbar();
 
+  // Only Admins should be able to delete -- or only non-guided games can be deleted by non Admins
   async function handleDeleteGame(gameObject) {
     await API.graphql({
       query: mutations.deleteGame,
@@ -20,13 +22,8 @@ function GameCard({ game }) {
       })
       .catch((err) => {
         console.log({ err });
-        enqueueSnackbar(`Sucessfully deleted ${gameObject.name}`, { variant: 'error' });
+        enqueueSnackbar(`Error deleting game: ${gameObject.name}`, { variant: 'error' });
       });
-  }
-
-  // Add open (modal?) to request if guided / nonguided
-  function handleStartGame() {
-
   }
 
   return (
@@ -41,7 +38,7 @@ function GameCard({ game }) {
       <CardContent sx={{ padding: '0 16px' }}>
         <Typography variant="overline">{game.name}</Typography>
         {game.description ? <div>{game.description}</div> : null}
-        <ButtonGroup sx={{ display: 'flex', alignContent: 'space-between' }}>
+        <ButtonGroup sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button
             size="small"
             sx={{ marginTop: '1rem' }}
@@ -50,14 +47,11 @@ function GameCard({ game }) {
             onClick={() => handleDeleteGame(game)}>
             Delete Game
           </Button>
-          <Button
-            size="small"
-            sx={{ marginTop: '1rem' }}
-            variant="contained"
-            color="success"
-            onClick={() => handleStartGame(game)}>
-            Start Game
-          </Button>
+          <Link to="/GameSetup">
+            <Button size="small" sx={{ marginTop: '1rem' }} variant="contained" color="success">
+              Start Game
+            </Button>
+          </Link>
         </ButtonGroup>
       </CardContent>
     </Card>

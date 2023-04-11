@@ -23,6 +23,7 @@ const styles = {
 
 function Navigation() {
   // TODO: Add conditional for admin / normal user to display 'admin' functions
+  // TODO: Add other userGroup : nonAdmin
   return (
     <AppBar position="static">
       <CssBaseline />
