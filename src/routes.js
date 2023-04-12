@@ -4,6 +4,7 @@ import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import ExamplePage from './pages/ExamplePage';
+import GameSetup from './pages/GameSetup';
 import { Login } from './components/Login';
 
 function MyRoutes() {
@@ -29,6 +30,7 @@ function MyRoutes() {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/GameSetup" element={<GameSetup />} />
         </Route>
       </Routes>
     </BrowserRouter>

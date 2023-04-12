@@ -1,0 +1,38 @@
+.gameTypeBox {
+    padding-top: 30px;
+    display:block;
+    text-align: center;
+    background-color: rgb(172, 178, 164);
+    min-height: 800px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 10px 2px rgb(196, 195, 195);
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.btnContainer div {
+    min-width: 500px;
+    margin: 40px;
+    min-height: 700px;
+    box-shadow: 0px 2px 8px 2px rgb(242, 242, 242);
+}
+
+.leftCol {
+    background-color: aliceblue;
+}
+
+.rightCol {
+    background-color: aliceblue;
+}
+
+.guidedButton {
+
+}
+
+.nonguidedButton {
+
+}
